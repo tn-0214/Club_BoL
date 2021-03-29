@@ -1,0 +1,84 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, id:"first_name" ,placeholder: "山田" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, id:"last_name" ,placeholder: "太郎" %>
+  </div>
+
+    <div class="field">
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname, id:"nickname" ,placeholder: "golf太郎" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+      <label class="form-text">生年月日</label>
+      <span class="indispensable">必須</span>
+    <div class='input-birth-wrap'>
+      <%= raw sprintf(
+                  f.date_select(
+                    :birthday,
+                    class:'select-birth',
+                    id:"birth-date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: 1930,
+                    end_year: (Time.now.year - 5),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+    </div>
+
+  <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.text_field :phone_number, id:"phone_number" ,placeholder: "09000000000" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postcode %><br />
+    <%= f.text_field :postcode, autocomplete: 'postcode', class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :prefecture_name, '都道府県' %><br />
+    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください' }, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address_city, '市区町村' %><br />
+    <%= f.text_field :address_city, autocomplete: 'address_city', class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address_street, '番地' %><br />
+    <%= f.text_field :address_street, autocomplete: 'address_street', class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
