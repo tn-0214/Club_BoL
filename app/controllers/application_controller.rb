@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
       :phone_number,
       :postcode,
       :prefecture_name,
+      :prefecture_code,
       :address_city,
       :address_street,
       :address_building

@@ -51,17 +51,17 @@
     <div class="items-detail">
       <div class="weight-bold-text">商品の詳細</div>
       <div class="form">
-        <div class="weight-bold-text">
-          カテゴリー
-          <span class="indispensable">必須</span>
-        </div>
-          <%= f.collection_check_boxes(:category_id,Category.all , :id, :name, {}, {class:"category-select" ,id:"item-category"}) %>
-        <div class="weight-bold-text">
+       <div class="weight-bold-text">
           メンズorレディース
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:gender_id,Gender.all, :id, :name, {}, {class:"select-box", id:"item-gender"}) %>
       </div>
+        <div class="weight-bold-text">
+          カテゴリー
+          <span class="indispensable">必須</span>
+        </div>
+          <%= f.collection_check_boxes(:category_id,Category.all , :id, :name, {}, {class:"category-select" ,id:"item-category"}) %>
     </div>
     <%# /商品の詳細 %>
 
