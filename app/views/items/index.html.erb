@@ -1,0 +1,168 @@
+<%= render "shared/header" %>
+<div class='main'>
+
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      ―ゴルフクラブはリユースの時代へ。
+    </h2>
+    <p class='service-explain'>
+      実は半年に1回しか使ってないかも…。
+    </p>
+    <p class='service-explain'>
+      せっかくのクラブ、もっと使ってあげなきゃもったいない！
+    </p>
+    <div class='store-btn'>
+      <%= link_to image_tag("https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2011-09-21&kind=iossoftware&bubble=ios_apps", class:"apple-btn"), "#" %>
+      <%= link_to image_tag("dl-android.png", class:"google-btn"), "#" %>
+    </div>
+  </div>
+
+<div class='select-reason-contents'>
+<h2 class='title'>
+  ClubBoLの使い方について
+</h2>
+<ul class='reason-lists'>
+  <li class='list'>
+    <%= image_tag "furima-intro01.png", class:"list-pict" %>
+    <span class='reason-list-number'>1</span>
+    <h3 class='reason-list-text'>
+      <span class='reason-list-blue-text'>3分</span>
+      ですぐにレンタル出品
+    </h3>
+    <p class='reason-list-description'>
+      簡単入力＆選択ですぐに出品できる！
+    </p>
+  </li>
+  <li class='list'>
+    <%= image_tag "furima-intro02.png", class:"list-pict" %>
+    <span class='reason-list-number'>2</span>
+    <h3 class='reason-list-text'>
+      <span class='reason-list-blue-text'>都合</span>
+      に合わせて出品できる！
+    </h3>
+    <p class='reason-list-description'>
+      手渡しor配送、貸し出し期間の調整も自由自在！
+    </p>
+  </li>
+  <li class='list'>
+    <%= image_tag "furima-intro03.png", class:"list-pict" %>
+    <span class='reason-list-number'>3</span>
+    <h3 class='reason-list-text'>
+      手数料
+      <span class='reason-list-blue-text'>業界最安</span>
+    </h3>
+    <p class='reason-list-description'>
+      10%でお得に出品&購入！
+    </p>
+  </li>
+</ul>
+</div>
+
+<div class='ad-contents'>
+<h2 class='ad-title'>
+  およそ20~40年の耐用年数があると言われるゴルフクラブ。
+</h2>
+<p class='ad-explain'>
+  せっかく買ったなら、元気なクラブを色んな人とシェアしませんか？
+</p>
+<p class='ad-explain'>
+  クラブ選びに迷うビギナーさんのために、そして自分の収益のために
+</p>
+<p class='ad-explain'>
+  ぜひ当サイトをご利用くださいませ！
+</p>
+<div class='store-btn'>
+  <%= link_to image_tag("https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2011-09-21&kind=iossoftware&bubble=ios_apps", class:"apple-btn"), "#" %>
+  <%= link_to image_tag("dl-android.png", class:"google-btn"), "#" %>
+</div>
+</div>
+
+<div class='feature-contents'>
+<h2 class='title'>
+  こんな方に使ってほしい
+</h2>
+<ul class='feature-lists'>
+  <li class='list'>
+    <%= image_tag "furima-intro04.png", class:"list-pict" %>
+    <h3 class='feature-list-text'>
+      使用頻度の少ないクラブをお持ちの方
+    </h3>
+    <p class='feature-list-description'>
+      PCひとつで、いつでもどこでも簡単に出品できます！取り下げも自由！
+    </p>
+  </li>
+  <li class='list'>
+    <%= image_tag "furima-intro05.png", class:"list-pict" %>
+    <h3 class='feature-list-text'>
+      買い替え検討用に試打したい方
+    </h3>
+    <p class='feature-list-description'>
+      ショップにないクラブを試打したい…そんな時にピッタリ！
+    </p>
+  </li>
+  <li class='list'>
+    <%= image_tag "furima-intro06.png", class:"list-pict" %>
+    <h3 class='feature-list-text'>
+      様々な支払いに対応
+    </h3>
+    <p class='feature-list-description'>
+      お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+    </p>
+  </li>
+</ul>
+</div>
+
+  <div class='item-contents'>
+    <h2 class='title'>ピックアップカテゴリー</h2>
+    <%= link_to '新規投稿商品', "#", class: "subtitle" %>
+    <ul class='item-lists'>
+
+    <% @items.each do |item| %>
+      <li class='list'>
+        <%= link_to item_path(item.id) do %>
+        <div class='item-img-content'>
+          <%= image_tag item.image, class: "item-img" %>
+
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= item.name %>
+          </h3>
+          <div class='item-price'>
+            <span><%= item.weekly_price %>円</span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+    <% end %>
+      </li>
+
+      <% if @items.length == 0 %>
+      <li class='list'>
+        <%= link_to '#' do %>
+        <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            商品を出品してね！
+          </h3>
+          <div class='item-price'>
+            <span>99999999円<br>(税込み)</span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+
+<%= link_to(new_item_path, class: 'purchase-btn') do %>
+  <span class='purchase-btn-text'>出品する</span>
+  <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+<% end %>
+<%= render "shared/footer" %>

@@ -1,0 +1,170 @@
+<div class="items-sell-contents">
+  <header class="items-sell-header">
+    <%= link_to image_tag('logo.png'), "/" %>
+
+  </header>
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">商品の情報を入力</h2>
+    <%= form_with(model: @item, local: true ) do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+
+    <%# 出品画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        出品画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+      <div class="weight-bold-text"> 
+        商品名(40文字以内)
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"Taylormadeドライバー", maxlength:"40" %>
+    </div>
+    <%# /出品画像 %>
+    
+    <%# 商品名と商品説明 %>
+    <div class="new-items">
+      <div class="weight-bold-text"> 
+        商品の説明(1000文字以内)
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :comment, class:"items-text", id:"item-info", placeholder:"例：TaylorMade 2007年製のR7 #A~#5のアイアンセットです。",rows:"7" ,maxlength:"1000" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+        注意事項(1000文字以内)
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :precaution, class:"items-text", id:"item-precaution", placeholder:"例：多少のサビあり。7番アイアンはグリップに多少のスレあり。" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+    <%# /商品名と商品説明 %>
+
+    <%# 商品の詳細 %>
+    <div class="items-detail">
+      <div class="weight-bold-text">商品の詳細</div>
+      <div class="form">
+       <div class="weight-bold-text">
+          メンズorレディース
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:gender_id,Gender.all, :id, :name, {}, {class:"select-box", id:"item-gender"}) %>
+      </div>
+        <div class="weight-bold-text">
+          カテゴリー
+          <span class="indispensable">必須</span>
+        </div>
+          <%= f.collection_check_boxes(:category_id,Category.all , :id, :name, {}, {class:"category-select" ,id:"item-category"}) %>
+    </div>
+    <%# /商品の詳細 %>
+
+    <%# 配送について %>
+    <div class="items-detail">
+      <div class="weight-bold-text question-text">
+        <span>取引について</span>
+        <a class="question" href="#">?</a>
+      </div>
+      <div class="form">
+        <div class="weight-bold-text">
+          最低貸出期間
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:lending_period_id,LendingPeriod.all, :id, :name, {}, {class:"select-box", id:"item-lending-period"}) %>
+        <div class="weight-bold-text">
+          貸し出し終了日
+          <span class="indispensable">任意</span>
+        </div>
+        <%# <% f.date_select(:due_date,id:"due-date",use_month_numbers: true,prompt:'--',start_year: 1930,end_year: (Time.now.year - 5),date_separator: '%s'),"<p> 年 </p>", "<p> 月 </p>")+ "<p> 日 </p>" %> 
+      <%= raw sprintf(
+                  f.date_select(
+                    :due_date,
+                    id:"due_date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: Time.now.year,
+                    end_year: (Time.now.year + 5),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+        <div class="weight-bold-text">
+          受け渡し可能地域
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:receiving_prefecture_id,ReceivingPrefecture.all, :id, :name, {}, {class:"select-box", id:"item-receiving^-prefecture"}) %>
+        <div class="weight-bold-text">
+          受け渡し可能地域（詳細）
+          <span class="indispensable">任意</span>
+        </div>
+        <%= f.text_area :receiving_address, class:"items-text", id:"item-address", placeholder:"○○市内（場所/日時によって配達OK！）" ,rows:"7" ,maxlength:"100" %>
+      </div>
+    </div>
+    <%# /配送について %>
+
+    <%# 販売価格 %>
+    <div class="sell-price">
+      <div class="weight-bold-text question-text">
+        <span>レンタル価格</span>
+        <a class="question" href="#">?</a>
+      </div>
+      <div>
+        <div class="price-content">
+          <div class="price-text">
+            <span>価格/週</span>
+            <span class="indispensable">必須</span>
+          </div>
+          <span class="sell-yen">¥</span>
+          <%= f.text_field :weekly_price, class:"price-input", id:"item-weekly-price", placeholder:"例）300" %>
+        </div>
+        <div class="price-content">
+          <span>レンタル手数料 (10%)</span>
+          <span>
+            <span id='add-tax-price'></span>円
+          </span>
+        </div>
+        <div class="price-content">
+          <span>レンタル利益</span>
+          <span>
+            <span id='profit'></span>円
+        </div>
+        </span>
+      </div>
+    </div>
+    <%# /販売価格 %>
+
+    <%# 注意書き %>
+    <div class="caution">
+      <p class="sentence">
+        <p>極度の破損または、使用に危険が伴う状態のクラブを</p>
+        <p>レンタル出品する事はご遠慮ください。</p>
+        <p>尚、ゴルフ用品以外の商品出品は固く禁止させていただいております。</p>
+      </p>
+    </div>
+    <%# /注意書き %>
+    
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "出品する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+
+  <footer class="items-sell-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">フリマ利用規約</a></li>
+      <li><a href="#">特定商取引に関する表記</a></li>
+    </ul>
+    <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
+    <p class="inc">
+      ©︎Furima,Inc.
+    </p>
+  </footer>
+</div>
