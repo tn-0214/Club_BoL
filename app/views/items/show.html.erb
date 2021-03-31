@@ -7,28 +7,35 @@
     </h2>
     <div class="item-img-content">
       <%= image_tag @item.image,class:"item-box-img" %>
-      <% if @item.purchase.present? %>
-      <div class="sold-out">
-        <span>Sold Out!!</span>
-      </div>
-      <% end %>
+
+<%#     <% if @item.purchase.present? %> 
+<%#      <div class="sold-out">
+        <span>貸出中</span>
+      </div>                           %>
+
     </div>
     <div class="item-price-box">
       <span class="item-price">
-        ￥<%= @item.price %>
+        <%= @item.daily_price %>円 / 日
       </span>
       <span class="item-postage">
-        <%= @item.postage.name %>
+        出品地域（県）：<%= @item.user.prefecture.name %>
+      </span>
+      <span class="item-postage">
+        出品地域（市）：<%= @item.user.address_city %>
+      </span>
+      <span class="item-postage">
+        貸出終了日：<%= @item.due_date %>
       </span>
     </div>
 
-    <% if user_signed_in? && @item.purchase.blank? %>
+    <% if user_signed_in?  %> <%# && @item.purchase.blank? %>
       <% if current_user.id == @item.user_id %>
         <%= link_to "商品の編集", edit_item_path, method: :get, class: "item-red-btn" %>
         <p class="or-text">or</p>
         <%= link_to "削除", item_path(@item.id), method: :delete, class:"item-destroy" %>
       <% else %>
-         <%= link_to "購入画面に進む", item_purchases_path(@item.id) ,class:"item-red-btn"%>
+         <%= link_to "購入画面に進む", "/",class:"item-red-btn"%>
       <% end %>
     <% end %>
 
@@ -42,24 +49,24 @@
           <td class="detail-value"><%= @item.user.nickname %></td>
         </tr>
         <tr>
-          <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%= @item.category.name %></td>
+          <th class="detail-item">商品説明</th>
+          <td class="detail-value"><%= @item.comment %></td>
         </tr>
         <tr>
-          <th class="detail-item">商品の状態</th>
-          <td class="detail-value"><%= @item.condition.name %></td>
+          <th class="detail-item">注意事項</th>
+          <td class="detail-value"><%= @item.precaution %></td>
         </tr>
         <tr>
-          <th class="detail-item">配送料の負担</th>
-          <td class="detail-value"><%= @item.postage.name %></td>
+          <th class="detail-item">クラブ種別</th>
+          <td class="detail-value"><%= @item.gender.name %></td>
         </tr>
         <tr>
-          <th class="detail-item">発送元の地域</th>
-          <td class="detail-value"><%= @item.ship_form.name %></td>
+          <th class="detail-item">クラブカテゴリー</th>
+          <td class="detail-value"><%= @item.category_ids %></td>
         </tr>
         <tr>
-          <th class="detail-item">発送日の目安</th>
-          <td class="detail-value"><%= @item.etd.name %></td>
+          <th class="detail-item">最低貸出期間</th>
+          <td class="detail-value"><%= @item.minimum_period%></td>
         </tr>
       </tbody>
     </table>
@@ -97,8 +104,6 @@
       後ろの商品 ＞
     </a>
   </div>
-
-  <a href="#" class="another-item"><%= @item.category.name %>をもっと見る</a>
 
 </div>
 

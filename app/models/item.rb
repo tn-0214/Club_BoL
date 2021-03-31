@@ -4,8 +4,6 @@ class Item < ApplicationRecord
   has_one_attached :image
   has_many :item_categories
   has_many :categories, through: :item_categories
-  belongs_to :receiving_prefecture
-  belongs_to :lending_period
   belongs_to :gender
 
 end
