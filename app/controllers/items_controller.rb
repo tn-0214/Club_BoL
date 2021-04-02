@@ -20,6 +20,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    minimum = MinimumPeriod.data.detect{|o| o[:id] == @item.minimum_period}
+    @minimum_p_name = minimum[:name]
   end
 
   def edit
@@ -37,6 +39,10 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to root_path
     end
+  end
+
+  def itemlist
+    @items = Item.order(created_at: "DESC")
   end
 
 

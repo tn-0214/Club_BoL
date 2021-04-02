@@ -62,25 +62,22 @@
 
 /* /購入内容の表示 */
 
-/* 支払額の表示 */
-.item-payment {
-  height: 120px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-bottom: 2px solid #f5f5f5;
+/* 購入者情報の表示 */
+.buyers-info{
   font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  border-bottom: 2px solid #f5f5f5;
+  width:60vw;
 }
 
-.item-payment-title {
-  font-size: 20px;
+.buyers-sub-text{
+  font-size: 12px;
+  border-bottom:1px dotted gray; 
 }
 
-.item-payment-price {
-  font-size: 25px;
-}
 
-/* /支払額の表示 */
+/* 購入者情報の表示 */
 
 /* カード情報の入力 */
 .credit-card-form {
@@ -126,6 +123,26 @@
 }
 
 /* /カード情報の入力 */
+
+/* 支払額の表示 */
+.item-payment {
+  height: 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid #f5f5f5;
+  font-weight: bold;
+}
+
+.item-payment-title {
+  font-size: 20px;
+}
+
+.item-payment-price {
+  font-size: 25px;
+}
+
+/* /支払額の表示 */
 
 /* 配送先の入力 */
 .shipping-address-form {
