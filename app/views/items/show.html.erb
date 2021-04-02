@@ -31,11 +31,11 @@
 
     <% if user_signed_in?  %> <%# && @item.purchase.blank? %>
       <% if current_user.id == @item.user_id %>
-        <%= link_to "商品の編集", edit_item_path, method: :get, class: "item-red-btn" %>
+        <%= link_to "レンタル品の編集", edit_item_path, method: :get, class: "item-red-btn" %>
         <p class="or-text">or</p>
-        <%= link_to "削除", item_path(@item.id), method: :delete, class:"item-destroy" %>
+        <%= link_to "レンタル品の削除", item_path(@item.id), method: :delete, class:"item-destroy" %>
       <% else %>
-         <%= link_to "購入画面に進む", "/",class:"item-red-btn"%>
+         <%= link_to "レンタル画面に進む", item_order_path(@item.id),class:"item-red-btn"%>
       <% end %>
     <% end %>
 
@@ -62,11 +62,15 @@
         </tr>
         <tr>
           <th class="detail-item">クラブカテゴリー</th>
-          <td class="detail-value"><%= @item.category_ids %></td>
+          <td class="detail-value">
+            <% @item.categories.each do |category| %>
+              <%= category.category_name %>
+            <% end %>
+          </td>
         </tr>
         <tr>
           <th class="detail-item">最低貸出期間</th>
-          <td class="detail-value"><%= @item.minimum_period%></td>
+          <td class="detail-value"><%= @minimum_p_name %></td>
         </tr>
       </tbody>
     </table>
@@ -96,14 +100,7 @@
       </button>
     </form>
   </div>
-  <div class="links">
-    <a href="#" class="change-item-btn">
-      ＜ 前の商品
-    </a>
-    <a href="#" class="change-item-btn">
-      後ろの商品 ＞
-    </a>
-  </div>
+
 
 </div>
 
