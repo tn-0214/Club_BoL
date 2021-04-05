@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: "items#index"
   get "items/itemlist"
 
-  resources :items
+  resources :items do
    resources :orders, only: [:index, :create]
+  end
 end

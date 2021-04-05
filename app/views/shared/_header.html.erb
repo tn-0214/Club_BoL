@@ -1,11 +1,11 @@
 <header>
     <%= link_to image_tag("logo.png", class:"furima-icon"), "/" %>
       <div class="header__bar row">
-        <h1 class="grid-6"><a href="/">ClubBoL</a></h1>
+        <h1 class="grid-6"><a href=>ClubBoL</a></h1>
         <% if user_signed_in? %>
           <div class="user_nav grid-6">
           <span><%= current_user.nickname %>でログイン中
-            <ul class="user__info">
+            <ul class="lists-right">
               <li>
                 <%= link_to "マイページ", "/users/#{current_user.id}" %>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
