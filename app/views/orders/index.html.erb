@@ -81,7 +81,7 @@
     <%# /購入者情報の表示 %>
 
   <%# -------------- 一旦カード情報だけ外に出す ------------------- %>
-    <%= form_with model:@order, url:"/", id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+    <%= form_with model:@order, url:item_orders_path(@item.id), id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
   <%# /------------------------------------------------------------ %>
     
@@ -91,18 +91,32 @@
         支払い金額
       </h1>
     </div>
-      <div class="form-group">
+      <div class="lending-title">
         <div class='form-text-wrap'>
           <label class="form-text">貸出希望日数</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_field :lending_period, class:"input-period", id:"postal-code", placeholder:"10", maxlength:"8" %>日
+        <div class="input-period-parent">
+          <%= f.text_field :lending_period, class:"input-period", id:"lending-period", placeholder:"半角数字で入力", maxlength:"8" %>
+          <p>日</p>
+        </div>
+          <div class="price-content">
+          <span>1日あたり</span>
+          <span>
+            <span id='item-daily-price'></span>円
+          </span>
+        </div>
+        <div class="price-content">
+          <span>レンタル料金(総額)</span>
+          <span>
+            <span id='amount'></span>円
+        </div>
+        </span>
       </div>
-
     <%# /配送先の入力 %>
 
     <div class='buy-btn'>
-      <%= f.submit "購入" ,class:"buy-red-btn" %>
+      <%= f.submit "レンタルする" ,class:"buy-red-btn" %>
     </div>
     <% end %>
   </div>

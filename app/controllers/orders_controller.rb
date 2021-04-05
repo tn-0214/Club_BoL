@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
 
   def index
     @order = Order.new
+    gon.daily_price = @item.daily_price
   end
 
   def create
@@ -18,7 +19,7 @@ class OrdersController < ApplicationController
 
 private
   def order_params
-    params.require(:order).permit(:lenging_period).merge(user_id: current_user.id, item_id: params[:item_id])
+    params.require(:order).permit(:lending_period).merge(user_id: current_user.id, item_id: params[:item_id])
   end
 
   def move_to_root
