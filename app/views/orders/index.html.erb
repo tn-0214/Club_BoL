@@ -71,9 +71,9 @@
     </h1>
     <div class='buyers-info'>
       <p class="buyers-sub-text">
-        <span class="bs-text-deco">購入者氏名：<%= @item.user.first_name %></span><br/>
-        <span class="bs-text-deco">連絡先Email：<%= @item.user.email %></span><br/>
-        <span class="bs-text-deco">連絡先TEL：<%= @item.user.phone_number %></span>
+        <span class="bs-text-deco">購入者氏名：<%= current_user.first_name %></span><br/>
+        <span class="bs-text-deco">連絡先Email：<%= current_user.email %></span><br/>
+        <span class="bs-text-deco">連絡先TEL：<%= current_user.phone_number %></span>
       </p>
     </div>
     

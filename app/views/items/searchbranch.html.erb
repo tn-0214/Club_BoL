@@ -1,0 +1,23 @@
+<%= render "shared/header" %>
+
+<div class="search-title">
+    <h1>地域で検索をする</h1>
+</div>
+
+<div class="search-area">
+ <div class="search-form">
+    1.都道府県：
+    <select id="select-pref" class="form-box"><option value="">選択してください</option></select>
+ </div>
+
+ <div class="search-form">
+    2.市区町村：
+    <select id="select-city" class="form-box"><option value="">選択してください</option></select>
+ </div>
+</div>
+
+  <div class="search-jump">
+    <%= link_to image_tag("search-do-icon.jpg"), "/" %>
+  </div>
+
+  <%= render "shared/footer" %>
