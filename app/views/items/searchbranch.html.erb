@@ -1,0 +1,15 @@
+<%= render "shared/header" %>
+
+<div class="search-title">
+    <h1>検索方法を選択</h1>
+</div>
+
+<div class="search-jump">
+    <%= link_to image_tag("legion_search_btn.png"),items_search_legion_path  %>
+</div>
+ 
+<div class="search-jump">
+    <%= link_to image_tag("category_search_btn.png"),items_search_category_path %>
+</div>
+
+  <%= render "shared/footer" %>

@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   root to: "items#index"
   get "items/itemlist"
 
+  get "items/searchbranch"
+  get "items/search_legion"
+  get "items/search_category"
+
   resources :items do
    resources :orders, only: [:index, :create]
   end

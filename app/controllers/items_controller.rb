@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :edit]
+ 
 
   def index
-    @items = Item.order(created_at: "DESC")
   end
 
   def new
@@ -45,6 +45,16 @@ class ItemsController < ApplicationController
     @items = Item.order(created_at: "DESC")
   end
 
+  def search_legion
+    @prefecture_ids = User.where("prefecture_id = ?", params[:search_pref])
+  end
+
+  def search_category
+  end
+
+  def searchbranch
+  end
+
 
 private
 
@@ -55,6 +65,8 @@ private
   def set_item
     @item = Item.find(params[:id])
   end
+
+
 
 end
 

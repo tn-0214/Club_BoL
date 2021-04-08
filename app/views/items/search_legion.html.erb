@@ -1,0 +1,46 @@
+<%= render "shared/header" %>
+
+<div class="search-title">
+    <h1>地域で検索をする</h1>
+</div>
+
+<div class="search-area">
+ <div class="search-form">
+    1.都道府県：
+    <select id="select-pref" class="form-box" name="search_pref">
+      <option value="">選択してください</option>
+    </select>
+ </div>
+
+ <div class="search-form">
+    2.市区町村：
+    <select id="select-city" class="form-box" name="search_city"><option value="">選択してください</option></select>
+ </div>
+</div>
+
+ <div class="search-jump">
+    <%= link_to image_tag("search-do-icon.jpg"), "/" %>
+ </div>
+
+<%= render "shared/footer" %>
+
+<script>
+$.getJSON('/pref_city.json', function(data) {
+  for(var i=1; i<48; i++) {
+    var code = ('00'+i).slice(-2); // ゼロパディング
+    $('#select-pref').append('<option value="'+code+'">'+data[i-1][code].pref+'</option>');
+  }
+});
+
+$('#select-pref').change(function(){
+  $('#select-city option:nth-child(n+2)').remove();
+  var select_pref = ('00'+$('#select-pref option:selected').val()).slice(-2);
+  var key = Number(select_pref)-1;
+  $.getJSON("/pref_city.json", function(data) {
+    for(var i=0; i<data[key][select_pref].city.length; i++){
+      $('#select-city').append('<option value="'+data[key][select_pref].city[i].name+'">'+data[key][select_pref].city[i].name+'</option>');
+    }
+  });
+});
+</script>
+
