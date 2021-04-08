@@ -2,103 +2,54 @@
   box-sizing: border-box;
 }
 
-.top-page-header {
-  width: 100vw;
-  padding: 2vh 15vw;
-  display: flex;
-  flex-direction: column;
-}
-
-.search-bar-contents {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .furima-icon {
-  width: 10vw;
-  margin-right: 10vw;
+  width: 176px;
+  height: 94px;
 }
 
-.search-form {
-  width: 65vw;
-  height: 5vh;
-  display: flex;
-  margin-bottom: 5px;
-}
-
-.search-form>.input-box {
-  width: 100%;
-  height: 5vh;
-  padding-left: 10px;
-}
-
-.search-button {
-  width: 5vh;
-  border: 0;
-  cursor: pointer;
-  background-color: #3ccace;
-  padding: 8px;
-}
-
-.search-icon {
-  width: 100%;
-}
-
-.nav {
-  font-size: 18px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 100%;
-  padding: 1vh 0;
-}
-
-.lists-left {
-  display: flex;
-  min-width: 200px;
-
-}
-
-.category-list {
-  text-decoration: none;
-  margin-right: 3vw;
+.catch-copy{
+  font-size: 30px;
   color: #333333;
+  text-align: center;
 }
 
-.brand-list {
-  text-decoration: none;
-  color: #333333;
+.copy1{
+  text-align: left;
 }
 
-.lists-right {
+.user_nav{
   display: flex;
   list-style: none;
-  align-items: flex-end;
+  align-items: center;
+  justify-content:space-between;
 }
 
+.lists-right{
+  padding-right:3vw;
+}
 
 .user-nickname {
   text-decoration: none;
-  margin-right: 3vw;
   color: #333333;
   font-weight: bold;
+  font-size:24px;
+}
+
+.sub-text{
+  font-size: 18px;
 }
 
 
-.logout {
+.right-item {
   text-decoration: none;
   color: #333333;
+  font-size:18px;
 }
 
-.login {
+.left-item {
   text-decoration: none;
   line-height: 32px;
   margin-right: 3vw;
   color: #333333;
-}
-
-.sign-up {
-  text-decoration: none;
-  color: #333333;
+  font-size:18px;
 }

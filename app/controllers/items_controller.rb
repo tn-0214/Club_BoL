@@ -45,6 +45,11 @@ class ItemsController < ApplicationController
     @items = Item.order(created_at: "DESC")
   end
 
+  def search
+  end
+
+  def searchbranch
+  end
 
 private
 

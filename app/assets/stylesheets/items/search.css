@@ -1,0 +1,37 @@
+.search-title{
+    font-size: 7vh;
+    font-weight: bold;
+    position: relative;
+    background-color:gray;
+    text-align:center;
+    color:white;
+
+    margin:4vh 10vw 10vw 10vw;
+}
+
+.search-area{
+    margin-bottom:10vh;
+    background-color: lightgray;
+    padding-top:8vh;
+    padding-bottom:4vh;
+    margin-right:10vw;
+    margin-left:10vw;
+
+}
+
+.search-form{
+    text-align: center;
+    font-size:34px;
+    color:gray;
+    margin-bottom:4vh;
+}
+
+.form-box{
+    padding: 0 10vw;
+    color:gray;
+}
+
+.search-jump{
+    text-align: center;
+    margin-bottom:7vh;
+}

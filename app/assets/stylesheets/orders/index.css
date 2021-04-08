@@ -17,6 +17,15 @@
   border-bottom: 2px solid #f5f5f5;
   font-weight: bold;
   font-size: 22px;
+  padding:20px 0;
+}
+
+.transaction-first-title{
+  text-align: center;
+  border-bottom: 2px solid #f5f5f5;
+  font-weight: bold;
+  font-size: 22px;
+  padding-bottom:20px ;
 }
 
 /* 購入内容の表示 */
@@ -42,6 +51,7 @@
 
 .buy-item-text {
   font-size: 20px;
+  margin-left:13px;
 }
 
 .buy-item-price {
@@ -51,31 +61,29 @@
   margin-top: 10px;
 }
 
-.item-price-text {
-  font-size: 15px;
-  margin-right: 20px;
-}
-
 .item-price-sub-text {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 /* /購入内容の表示 */
 
 /* 購入者情報の表示 */
 .buyers-info{
-  font-weight: bold;
   text-align: center;
-  margin-top: 10px;
   border-bottom: 2px solid #f5f5f5;
-  width:60vw;
+  display:block;
 }
 
-.buyers-sub-text{
-  font-size: 12px;
-  border-bottom:1px dotted gray; 
-}
 
+ .buyers-info .buyers-sub-text{
+  font-size: 18px;
+  text-align:left;
+  display:inline-block;
+} 
+
+.bs-text-deco{
+  padding-top:40px;
+}
 
 /* 購入者情報の表示 */
 
@@ -149,13 +157,6 @@
   margin-top: 15px;
 }
 
-.form-any {
-  background: #ccc;
-  border-radius: 2px;
-  color: #fff;
-  font-size: 12px;
-  padding: 2px 4px;
-}
 
 .buy-btn {
   width: 50%;
@@ -171,4 +172,48 @@
   line-height: 48px;
   font-size: 14px;
   cursor: pointer;
+}
+
+
+.lending-title {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.input-period-parent {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  line-height: 55px;
+  padding-top:20px;
+}
+
+.input-period-parent p{
+  font-size:20px
+}
+
+.input-period{
+  width: 60%;
+  margin-top: 5px;
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 24px;
+  resize: none;
+  line-height: 45px;
+  text-align: center;
+}
+
+.price-content {
+  width: 300px;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size:20px;
 }

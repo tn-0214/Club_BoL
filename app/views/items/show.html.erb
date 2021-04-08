@@ -6,36 +6,41 @@
       <%= @item.name %>
     </h2>
     <div class="item-img-content">
-      <%= image_tag @item.image,class:"item-box-img" %>
-
-<%#     <% if @item.purchase.present? %> 
-<%#      <div class="sold-out">
-        <span>貸出中</span>
-      </div>                           %>
-
+      <%= image_tag @item.image,class:"item-box-img" %>                 
     </div>
-    <div class="item-price-box">
+    <div class="item-rental-status">
+        <% if @item.order.present? %> 
+          <span>
+            <%= image_tag "soldout-icon.png", class:"status-show"%>
+          </span>
+        <% else %>
+          <span>
+            <%= image_tag "nowonsale-icon.png",class:"status-show"%>
+          </span>
+      <% end %>    
+    <div class="item-price-box">  
       <span class="item-price">
         <%= @item.daily_price %>円 / 日
       </span>
-      <span class="item-postage">
+      <span class="item-detail-head">
         出品地域（県）：<%= @item.user.prefecture.name %>
       </span>
-      <span class="item-postage">
+      <span class="item-detail-head">
         出品地域（市）：<%= @item.user.address_city %>
       </span>
-      <span class="item-postage">
+      <span class="item-detail-head">
         貸出終了日：<%= @item.due_date %>
       </span>
     </div>
+  </div>
 
-    <% if user_signed_in?  %> <%# && @item.purchase.blank? %>
+    <% if user_signed_in? && @item.order.blank? %>
       <% if current_user.id == @item.user_id %>
         <%= link_to "レンタル品の編集", edit_item_path, method: :get, class: "item-red-btn" %>
         <p class="or-text">or</p>
         <%= link_to "レンタル品の削除", item_path(@item.id), method: :delete, class:"item-destroy" %>
       <% else %>
-         <%= link_to "レンタル画面に進む", item_order_path(@item.id),class:"item-red-btn"%>
+         <%= link_to "レンタル画面に進む", item_orders_path(@item.id),class:"item-red-btn"%>
       <% end %>
     <% end %>
 

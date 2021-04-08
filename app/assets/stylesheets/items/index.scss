@@ -9,10 +9,10 @@ a {
 /* 画面上部の「人生を変えるフリマアプリ」帯部分 */
 .title-contents {
   width: 100vw;
-  background-image: image-url('furima-header01.png');
+  background-image: image-url('top-imagClol.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top center;
+  background-position:top center;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -29,20 +29,6 @@ a {
 .service-explain {
   font-size: 2.5vh;
   line-height: 40px;
-}
-
-.store-btn {
-  display: flex;
-  margin-top: 24px;
-}
-
-.apple-btn {
-  margin-right: 1vw;
-  height: 9vh;
-}
-
-.google-btn {
-  height: 9vh;
 }
 
 /* //画面上部の「人生を変えるフリマアプリ」帯部分 */
@@ -220,7 +206,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10vh 0;
+  padding: 3vh 0;
 }
 
 .item-contents>.title {
@@ -262,14 +248,28 @@ a {
 
 .sold-out {
   position: absolute;
-  top: 40%;
-  width: 100%;
-  text-align: center;
-  background-color: crimson;
-  transform: skewY(-10deg);
+  right:0px;
+  bottom:0px;
+}
+
+.status-showlist{
+  width:125px;
+  height:75px;
+}
+
+.now-on-sale {
+  position: absolute;
+  right:0px;
+  bottom:0px;
 }
 
 .sold-out>span {
+  color: #FFF;
+  font-size: 45px;
+  font: bold;
+}
+
+.now-on-sale>span{
   color: #FFF;
   font-size: 45px;
   font: bold;
