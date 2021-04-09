@@ -262,14 +262,28 @@ a {
 
 .sold-out {
   position: absolute;
-  top: 40%;
-  width: 100%;
-  text-align: center;
-  background-color: crimson;
-  transform: skewY(-10deg);
+  right:0px;
+  bottom:0px;
+}
+
+.status-showlist{
+  width:125px;
+  height:75px;
+}
+
+.now-on-sale {
+  position: absolute;
+  right:0px;
+  bottom:0px;
 }
 
 .sold-out>span {
+  color: #FFF;
+  font-size: 45px;
+  font: bold;
+}
+
+.now-on-sale>span {
   color: #FFF;
   font-size: 45px;
   font: bold;
