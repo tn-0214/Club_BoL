@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show ,:itemlist, :searchbranch, :search_legion,:search_category]
   before_action :set_item, only: [:show, :edit]
-  before_action :search_do_legion, only: [:search_legion]
  
 
   def index
@@ -47,12 +46,17 @@ class ItemsController < ApplicationController
   end
 
   def search_legion
-    #@prefecture_ids = User.where("prefecture_id = ?", params[:search_pref])
-    @user = User.all
-    @results = @l.result
+    # @items = User.where("prefecture_code = ? and address_city = ?", params[:search_pref],params[:search_city]).flat_map(&:items)
+    @users = User.includes(:items).where(prefecture_code: params[:search_pref])
+    @users = @users.where(address_city: params[:search_city]) if params[:search_city].present?
+    @items = @users.flat_map(&:items)
   end
 
   def search_category
+    # @items = Category.where(id: params[:category_ids]).flat_map do |category|
+    #   category.items
+    # end    
+    @items = Category.includes(:items).where(id: params[:category_ids]).flat_map(&:items)
   end
 
   def searchbranch
@@ -67,10 +71,6 @@ private
 
   def set_item
     @item = Item.find(params[:id])
-  end
-
-  def search_do_legion
-    @l = User.ransack(params[:q])
   end
 
 

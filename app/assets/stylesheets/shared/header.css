@@ -15,6 +15,11 @@
 
 .copy1{
   text-align: left;
+  color:white;
+}
+
+.copy2{
+  color:white;
 }
 
 .user_nav{
@@ -22,10 +27,16 @@
   list-style: none;
   align-items: center;
   justify-content:space-between;
+  background-color:#339933;
 }
 
 .lists-right{
   padding-right:3vw;
+}
+
+.header__bar{
+  padding:20px;
+  background-color:rgba(0,0,0,0.3);
 }
 
 .user-nickname {
@@ -42,7 +53,7 @@
 
 .right-item {
   text-decoration: none;
-  color: #333333;
+  color:lightgray;
   font-size:18px;
 }
 
@@ -50,6 +61,6 @@
   text-decoration: none;
   line-height: 32px;
   margin-right: 3vw;
-  color: #333333;
+  color: lightgray;
   font-size:18px;
 }

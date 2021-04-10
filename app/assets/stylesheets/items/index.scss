@@ -8,6 +8,7 @@ a {
 
 /* 画面上部の「人生を変えるフリマアプリ」帯部分 */
 .title-contents {
+  margin:3vh 0;
   width: 100vw;
   background-image: image-url('top-imagClol.png');
   background-size: cover;
@@ -17,13 +18,13 @@ a {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 5vh 15vw;
+  padding: 15vh 15vw;
   color: #fff;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
 }
 
 .service-title {
-  font-size: 8vh;
+  font-size: 6vh;
 }
 
 .service-explain {
@@ -144,21 +145,7 @@ a {
 
 .ad-explain {
   font-size: 2.5vh;
-  line-height: 30px;
-}
-
-.store-btn {
-  display: flex;
-  margin-top: 24px;
-}
-
-.apple-btn {
-  margin-right: 1vw;
-  height: 9vh;
-}
-
-.google-btn {
-  height: 9vh;
+  line-height: 60px;
 }
 
 /* //画面中央の「会員数日本一位」帯部分 */
@@ -178,9 +165,9 @@ a {
 
 .feature-contents>.title::after {
   content: '';
-  width: 70px;
+  width: 420px;
   height: 4px;
-  background-color: #3ccace;
+  background-color: gray;
   position: absolute;
   bottom: -10px;
   left: 50%;

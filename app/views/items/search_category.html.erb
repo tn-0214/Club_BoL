@@ -1,1 +1,11 @@
-<h1>工事中</h1>
+<%= form_with(model: @item, local: true, method:"get" ) do |f| %>
+<%= f.collection_check_boxes(:category_ids,Category.all , :id, :category_name, {}, {class:"category-select" ,id:"item-category"}) %>
+
+<%= f.submit "検索する" ,class:"sell-btn" %>
+<%=link_to 'もどる', root_path, class:"back-btn" %>
+
+<% end %>
+
+<%- @items.each do |item| %>
+<%= item.name %>
+<% end %>
