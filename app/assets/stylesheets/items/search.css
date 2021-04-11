@@ -6,6 +6,7 @@
     text-align:center;
     color:white;
     margin:4vh 10vh 10vw 10vw;
+}
 
 
 .search-area{
@@ -15,7 +16,6 @@
     padding-bottom:4vh;
     margin-right:10vw;
     margin-left:10vw;
-
 }
 
 .search-form{
@@ -27,7 +27,6 @@
 
 .form-box{
     padding: 0 10vw;
-<<<<<<< HEAD
     color:#444444;
 }
 
@@ -63,7 +62,7 @@
 }
 /* ラベルのスタイル　*/
 .label-checkbox label {
-	padding-left:		38px;			/* ラベルの位置 */
+	padding-left:		38px;
 	font-size:		24px;
 	line-height:		38px;
 	display:		block;
@@ -74,7 +73,7 @@
 /* ボックスのスタイル */
 .label-checkbox label:before {
 	content:		'';
-	width:			24px;			/* ボックスの横幅 */
+	width:			24px;
 	height:			24px;		
 	display:		inline-block;
 	position:		absolute;
