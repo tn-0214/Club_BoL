@@ -5,9 +5,8 @@
     background-color:gray;
     text-align:center;
     color:white;
+    margin:4vh 10vh 10vw 10vw;
 
-    margin:4vh 10vw 10vw 10vw;
-}
 
 .search-area{
     margin-bottom:10vh;
@@ -22,16 +21,77 @@
 .search-form{
     text-align: center;
     font-size:34px;
-    color:gray;
+    color:#444444;
     margin-bottom:4vh;
 }
 
 .form-box{
     padding: 0 10vw;
-    color:gray;
+<<<<<<< HEAD
+    color:#444444;
+}
+
+.search-btn{
+    text-align:center;
 }
 
 .search-jump{
-    text-align: center;
     margin-bottom:7vh;
+    text-align:center;
+}
+
+.search-do-jump{
+    border:none;
+    background:transparent;
+    margin-bottom:7vh;
+}
+
+/* .cat-search-area{
+    background-color: lightgray;
+} */
+
+.search-subtitle{
+    padding:2vh 0;
+}
+
+.label-checkbox {
+	margin:7vh 10vw 7vh 10vw;
+    font-size:34px;
+    background-color: lightgray;
+    padding:0 10vw 2vh 10vw;
+    color:#444444;
+}
+/* ラベルのスタイル　*/
+.label-checkbox label {
+	padding-left:		38px;			/* ラベルの位置 */
+	font-size:		24px;
+	line-height:		38px;
+	display:		block;
+	cursor:			pointer;
+	position:		relative;
+}
+
+/* ボックスのスタイル */
+.label-checkbox label:before {
+	content:		'';
+	width:			24px;			/* ボックスの横幅 */
+	height:			24px;		
+	display:		inline-block;
+	position:		absolute;
+	left:			0;
+	background-color:	#fff;
+	border-radius:		6px 6px 6px 6px;
+    border:1px solid gray;
+}
+
+.label-checkbox input[type=checkbox] {
+	display:		none;
+}
+
+.label-checkbox input[type=checkbox]:checked + label:before {
+	content:		'\2713';		
+	font-size:		30px;		
+	color:			#fff;		
+	background-color:	#444444;
+    font-family: sans-serif;
 }

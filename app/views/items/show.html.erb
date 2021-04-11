@@ -6,19 +6,20 @@
       <%= @item.name %>
     </h2>
     <div class="item-img-content">
-      <%= image_tag @item.image,class:"item-box-img" %>                 
+      <%= image_tag @item.image,class:"item-box-img" %>
     </div>
     <div class="item-rental-status">
-        <% if @item.order.present? %> 
-          <span>
-            <%= image_tag "soldout-icon.png", class:"status-show"%>
-          </span>
-        <% else %>
-          <span>
-            <%= image_tag "nowonsale-icon.png",class:"status-show"%>
-          </span>
-      <% end %>    
-    <div class="item-price-box">  
+     <% if @item.order.present? %> 
+      <span>
+        <%= image_tag "soldout-icon.png", class:"status-show" %>
+      </span>
+     <% else %>
+      <span>
+        <%= image_tag "nowonsale-icon.png", class:"status-show" %>
+      </span>
+     <% end %>
+
+    <div class="item-price-box">
       <span class="item-price">
         <%= @item.daily_price %>円 / 日
       </span>

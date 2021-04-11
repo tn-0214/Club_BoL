@@ -1,0 +1,60 @@
+<%= render "shared/header" %>
+
+<div class="search-title">
+    <h1>カテゴリーで検索する</h1>
+</div>
+
+
+<%= form_with(model: @item, local: true, method:"get" ) do |f| %>
+ <div class="cat-search-area">
+  <div class="label-checkbox">
+    <h2 class="search-subtitle"> クラブカテゴリー</h2>
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :category_name, {}, {class:"category-search"})%>
+  </div>
+ </div>
+ <div class="search-btn">
+    <button type="submit" class="search-do-jump">
+    <%= image_tag("search-do-icon.jpg") %>
+    </button>
+ </div>
+<% end %>
+
+<ul class='item-lists'>
+<% @items.each do |item| %>
+    <li class='list'>
+    <%= link_to item_path(item.id) do %>
+    <div class='item-img-content'>
+        <%= image_tag item.image, class: "item-img" %>
+
+        <% if item.order.present? %>
+        <div class='sold-out'>
+            <span><%= image_tag "soldout-icon.png", class:"status-showlist" %></span>
+        </div>
+        <% else %>
+        <div class='now-on-sale'>
+            <span><%= image_tag "nowonsale-icon.png", class:"status-showlist" %></span>
+        </div>
+        <% end %>
+    </div>
+
+
+    <div class='item-info'>
+        <h3 class='item-name'>
+        <%= item.name %>
+        </h3>
+        <div class='item-price'>
+        <span><%= item.daily_price %>円</span>
+        <div class='star-btn'>
+            <%= image_tag "star.png", class:"star-icon" %>
+            <span class='star-count'>0</span>
+        </div>
+        </div>
+    </div>
+    <% end %>
+<% end %>
+</li>
+</ul>
+
+<%#=link_to 'もどる', root_path, class:"back-btn" %>
+
+<%= render "shared/footer" %>

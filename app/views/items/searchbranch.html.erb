@@ -1,23 +1,15 @@
 <%= render "shared/header" %>
 
 <div class="search-title">
-    <h1>地域で検索をする</h1>
+    <h1>検索方法を選択</h1>
 </div>
 
-<div class="search-area">
- <div class="search-form">
-    1.都道府県：
-    <select id="select-pref" class="form-box"><option value="">選択してください</option></select>
- </div>
-
- <div class="search-form">
-    2.市区町村：
-    <select id="select-city" class="form-box"><option value="">選択してください</option></select>
- </div>
+<div class="search-jump">
+    <%= link_to image_tag("legion_search_btn.png"),items_search_legion_path  %>
 </div>
-
-  <div class="search-jump">
-    <%= link_to image_tag("search-do-icon.jpg"), "/" %>
-  </div>
+ 
+<div class="search-jump">
+    <%= link_to image_tag("category_search_btn.png"),items_search_category_path %>
+</div>
 
   <%= render "shared/footer" %>

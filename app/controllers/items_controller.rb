@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:show, :edit]
+  before_action :authenticate_user!, except: [:index, :show ,:itemlist, :searchbranch, :search_legion,:search_category]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+ 
 
   def index
-    @items = Item.order(created_at: "DESC")
   end
 
   def new
@@ -38,6 +38,8 @@ class ItemsController < ApplicationController
   def destroy
     if @item.destroy
       redirect_to root_path
+    else
+      render :show
     end
   end
 
@@ -45,7 +47,14 @@ class ItemsController < ApplicationController
     @items = Item.order(created_at: "DESC")
   end
 
-  def search
+  def search_legion
+    @users = User.includes(:items).where(prefecture_code: params[:search_pref])
+    @users = @users.where(address_city: params[:search_city]) if params[:search_city].present?
+    @items = @users.flat_map(&:items)
+  end
+
+  def search_category
+    @items = Category.includes(:items).where(id: params[:category_ids]).flat_map(&:items)
   end
 
   def searchbranch
@@ -60,6 +69,7 @@ private
   def set_item
     @item = Item.find(params[:id])
   end
+
 
 end
 
