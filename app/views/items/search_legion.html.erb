@@ -1,10 +1,10 @@
 <%= render "shared/header" %>
 
 <div class="search-title">
-    <h1>地域で検索をする</h1>
+    <h1>地域で検索する</h1>
 </div>
 
-<%= form_with(model: @item, local: true, method:"get" ) do |f| %>
+<%= form_with(model: @item, local: true, method:"get" ) do %>
 <div class="search-area">
  <div class="search-form">
     1.都道府県：
@@ -21,14 +21,50 @@
  </div>
 </div>
 
-  <button type="submit" class="search-jump">
-  <%= image_tag("search-do-icon.jpg") %>
-  </button>
+  <div class="search-btn">
+    <button type="submit" class="search-do-jump">
+    <%= image_tag("search-do-icon.jpg") %>
+    </button>
+  </div>
 <% end %>
 
-<%- @items.each do |item| %>
-<%= item.name %>
-<% end %>
+<%# ★★この下に@itemのlengthが0だったら「ありませんでした」を表示 %>
+
+    <ul class='item-lists'>
+    <% @items.each do |item| %>
+      <li class='list'>
+        <%= link_to item_path(item.id) do %>
+        <div class='item-img-content'>
+          <%= image_tag item.image, class: "item-img" %>
+
+          <% if item.order.present? %>
+            <div class='sold-out'>
+              <span><%= image_tag "soldout-icon.png", class:"status-showlist" %></span>
+            </div>
+          <% else %>
+            <div class='now-on-sale'>
+              <span><%= image_tag "nowonsale-icon.png", class:"status-showlist" %></span>
+            </div>
+          <% end %>
+        </div>
+
+
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= item.name %>
+          </h3>
+          <div class='item-price'>
+            <span><%= item.daily_price %>円</span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+    <% end %>
+  </li>
+  </ul>
 
 <%#= link_to 'トップページへ戻る', root_path %>
 

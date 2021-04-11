@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-.furima-icon {
+.bol-icon {
   width: 176px;
   height: 94px;
 }
@@ -30,24 +30,21 @@
   background-color:#339933;
 }
 
-.lists-right{
-  padding-right:3vw;
-}
-
 .header__bar{
   padding:20px;
   background-color:rgba(0,0,0,0.3);
+  color:lightgray;
 }
 
 .user-nickname {
   text-decoration: none;
-  color: #333333;
   font-weight: bold;
   font-size:24px;
 }
 
 .sub-text{
   font-size: 18px;
+  padding-left:10px;
 }
 
 
