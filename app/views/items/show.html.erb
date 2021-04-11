@@ -23,13 +23,13 @@
       <span class="item-price">
         <%= @item.daily_price %>円 / 日
       </span>
-      <span class="item-postage">
+      <span class="item-detail-head">
         出品地域（県）：<%= @item.user.prefecture.name %>
       </span>
-      <span class="item-postage">
+      <span class="item-detail-head">
         出品地域（市）：<%= @item.user.address_city %>
       </span>
-      <span class="item-postage">
+      <span class="item-detail-head">
         貸出終了日：<%= @item.due_date %>
       </span>
     </div>

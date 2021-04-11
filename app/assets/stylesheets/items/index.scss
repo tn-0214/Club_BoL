@@ -36,20 +36,6 @@ a {
   line-height: 60px;
 }
 
-.store-btn {
-  display: flex;
-  margin-top: 24px;
-}
-
-.apple-btn {
-  margin-right: 1vw;
-  height: 9vh;
-}
-
-.google-btn {
-  height: 9vh;
-}
-
 /* //画面上部の「人生を変えるフリマアプリ」帯部分 */
 
 /* FURIMAが選ばれる3つの理由部分 */
@@ -211,7 +197,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10vh 0;
+  padding: 3vh 0;
 }
 
 .item-contents>.title {

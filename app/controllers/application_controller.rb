@@ -16,4 +16,7 @@ class ApplicationController < ActionController::Base
       :address_building
       ])
   end
+
+  def search
+  end
 end

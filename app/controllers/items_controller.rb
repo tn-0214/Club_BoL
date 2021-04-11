@@ -60,7 +60,6 @@ class ItemsController < ApplicationController
   def searchbranch
   end
 
-
 private
 
   def items_params
