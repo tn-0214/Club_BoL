@@ -11,11 +11,6 @@
   min-width: 500px;
 }
 
-.items-sell-header {
-  padding: 5vh 0;
-  text-align: center;
-}
-
 .items-sell-main {
   background-color: #FFF;
   width: 70vw;
@@ -51,19 +46,7 @@
   width: 100%;
   background-color: #f5f5f5;
   padding-left: 20px;
-}
-
-.question {
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  background: #0099e8;
-  color: #FFF;
-  font-size: 13px;
-  text-align: center;
-  line-height: 20px;
-  text-decoration: none;
-  margin-left: 5px;
+  font-weight:bold;
 }
 
 .question-text {
@@ -109,62 +92,27 @@
   margin-top: 2vh;
 }
 
-/* /商品名と商品説明 */
-
-/* 商品の詳細など */
-.items-detail {
-  display: flex;
-  justify-content: space-between;
-  padding: 2vh 0;
-}
-
-.items-detail>.form {
-  width: 300px;
-  padding: 2vh 0;
-}
-
-.select-box {
-  margin: 2vh 0;
-}
-
-.category-select{
-  vertical-align: middle;
-}
-
-.category-select label
-
-/* /商品の詳細など */
-
 /* 販売価格 */
-.sell-price {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
 
 .price-content {
-  width: 300px;
   border-bottom: 1px solid #ccc;
   padding: 10px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .price-text {
-  /* min-width: 170px; */
   display: flex;
-  align-items: center;
 }
 
-.sell-yen {
+.sell-content {
   font-size: 18px;
 }
 
 .price-input {
   height: 30px;
   text-align: right;
-  padding-right: 10px;
+  margin-right: 10px;
+  padding-right:10px;
 }
 
 /* /販売価格 */
@@ -205,35 +153,39 @@
   text-decoration: none;
 }
 
-/* /下部ボタン */
-
-.items-sell-footer {
-  background-color: #f5f5f5;
-  width: 60vw;
-  padding: 3ch 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* ラベルのスタイル　*/
+.label-checkbox-notsearch label {
+	padding-left:		38px;
+	font-size:		15px;
+	line-height:		25px;
+	display:		block;
+	cursor:			pointer;
+	position:		relative;
+  font-weight: bold;
 }
 
-
-.items-sell-footer>.menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 3vh 0;
+/* ボックスのスタイル */
+.label-checkbox-notsearch label:before {
+	content:		'';
+	width:			15px;
+	height:			15px;		
+	display:		inline-block;
+	position:		absolute;
+	left:			0;
+	background-color:	#fff;
+	border-radius:		1px 1px 1px 1px;
+    border:1px solid gray;
 }
 
-.menu>li>a {
-  color: black;
-  font-size: 12px;
-  margin: 2vw;
+.label-checkbox-notsearch input[type=checkbox] {
+	display:		none;
 }
 
-.inc {
-  font-size: 13px;
-}
-
-.category-select{
-  vertical-align: middle;
+.label-checkbox-notsearch input[type=checkbox]:checked + label:before {
+	content:		'\2713';		
+	font-size:		15px;		
+	color:			#fff;		
+	background-color:	#444444;
+  font-family: sans-serif;
+  font-weight: bold;
 }

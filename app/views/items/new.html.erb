@@ -1,8 +1,6 @@
-<div class="items-sell-contents">
-  <header class="items-sell-header">
-    <%= link_to image_tag('logo.png'), "/" %>
+<%= render "shared/second-header" %>
 
-  </header>
+<div class="items-sell-contents">
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%= form_with(model: @item, local: true ) do |f| %>
@@ -10,7 +8,6 @@
     <%= render 'shared/error_messages', model: f.object %>
 
 
-    <%# 出品画像 %>
     <div class="img-upload">
       <div class="weight-bold-text">
         出品画像
@@ -22,15 +19,13 @@
         </p>
         <%= f.file_field :image, id:"item-image" %>
       </div>
+    </div>
       <div class="weight-bold-text"> 
         商品名(40文字以内)
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"Taylormadeドライバー", maxlength:"40" %>
-    </div>
-    <%# /出品画像 %>
-    
-    <%# 商品名と商品説明 %>
+
     <div class="new-items">
       <div class="weight-bold-text"> 
         商品の説明(1000文字以内)
@@ -45,11 +40,8 @@
         <%= f.text_area :precaution, class:"items-text", id:"item-precaution", placeholder:"例：多少のサビあり。7番アイアンはグリップに多少のスレあり。" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
-    <%# /商品名と商品説明 %>
-
-    <%# 商品の詳細 %>
-    <div class="items-detail">
-      <div class="weight-bold-text">商品の詳細</div>
+ 
+    <div class="new-items">
       <div class="form">
        <div class="weight-bold-text">
           メンズorレディース
@@ -57,19 +49,17 @@
         </div>
         <%= f.collection_select(:gender_id,Gender.all, :id, :name, {}, {class:"select-box", id:"item-gender"}) %>
       </div>
-        <div class="weight-bold-text">
-          カテゴリー
-          <span class="indispensable">必須</span>
+      </div>
+      <div class="weight-bold-text">
+        カテゴリー
+        <span class="indispensable">必須</span>
+      </div>
+        <div class="label-checkbox-notsearch">
+          <%= f.collection_check_boxes(:category_ids,Category.all , :id, :category_name, {}, {class:"category-select" }) %>
         </div>
-          <%= f.collection_check_boxes(:category_ids,Category.all , :id, :category_name, {}, {class:"category-select" ,id:"item-category"}) %>
-    </div>
-    <%# /商品の詳細 %>
 
-    <%# 配送について %>
-    <div class="items-detail">
+    <div class="new-items">
       <div class="weight-bold-text question-text">
-        <span>取引について</span>
-        <a class="question" href="#">?</a>
       </div>
       <div class="form">
       <div class="weight-bold-text">
@@ -85,36 +75,27 @@
                     start_year: Time.now.year,
                     end_year: (Time.now.year + 5),
                     date_separator: '%s'),
-                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+                  "年", "月") + "日" %>
+    </div>
+    <div class="new-items">
         <div class="weight-bold-text">
           最低貸出期間
         <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:minimum_period,MinimumPeriod.all, :id, :name, {}, {class:"select-box", id:"item-minimum-period"}) %>
-      </div>
     </div>
-    <%# /配送について %>
 
-    <%# 販売価格 %>
-    <div class="sell-price">
-      <div class="weight-bold-text question-text">
-        <span>レンタル価格</span>
-        <a class="question" href="#">?</a>
+
+    <div class="new-items">
+      <div class="weight-bold-text">
+        レンタル価格
+        <span class="indispensable">必須</span>
       </div>
-      <div>
         <div class="price-content">
-          <div class="price-text">
-            <span>価格/日</span>
-            <span class="indispensable">必須</span>
-          </div>
-          <span class="sell-yen">¥</span>
-          <%= f.text_field :daily_price, class:"price-input", id:"item-daily-price", placeholder:"例）300" %>
+          <%= f.text_field :daily_price, class:"price-input", id:"item-daily-price", placeholder:"例）300" %>円
         </div>
-      </div>
     </div>
-    <%# /販売価格 %>
 
-    <%# 注意書き %>
     <div class="caution">
       <p class="sentence">
         <p>極度の破損または、使用に危険が伴う状態のクラブを</p>
@@ -122,23 +103,15 @@
         <p>尚、ゴルフ用品以外の商品出品は固く禁止させていただいております。</p>
       </p>
     </div>
-    <%# /注意書き %>
     
-    <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "出品する" ,class:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
-    <%# /下部ボタン %>
+ 
   </div>
   <% end %>
 
-  <footer class="items-sell-footer">
-    <ul class="menu">
-      <li><a href="#">プライバシーポリシー</a></li>
-      <li><a href="#">フリマ利用規約</a></li>
-      <li><a href="#">特定商取引に関する表記</a></li>
-    </ul>
-    <%= link_to image_tag('logoblack.png' , size: '220x85'), "/" %>
-  </footer>
 </div>
+
+<%= render "shared/footer" %>
