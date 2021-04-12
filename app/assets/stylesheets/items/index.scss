@@ -37,14 +37,17 @@ a {
 }
 /* */
 
-/* FURIMAが選ばれる3つの理由部分 */
+/* こんな方に使ってほしい */
 
 .flex{
   display: flex;
   justify-content: center;
+  align-items:center;
+  padding:15px 0;
 }
 .flex>p{
-  width: 49%;
+  width: 60%;
+  padding-left:20px;
 }
 
 .list-pict1{
@@ -52,10 +55,14 @@ a {
   max-height: 20vh;
 }
 
-/* //FURIMAが選ばれる3つの理由部分 */
+.sub-column{
+  font-size:25px;
+  font-weight:bold;
+}
+
+/* */
 
 
-/* 画面中央の「会員数日本一位」帯部分*/
 .ad-contents {
   width: 100vw;
   background-image: image-url('clubbol-header02.png');
@@ -98,7 +105,7 @@ a {
 
 .feature-contents>.title::after {
   content: '';
-  width: 420px;
+  width: 220px;
   height: 4px;
   background-color: gray;
   position: absolute;
@@ -165,9 +172,10 @@ a {
 }
 
 .item-lists>.list {
-  width: 37vh;
+  width: 30vh;
   padding: 1vw;
   background-color: #FFF;
+  margin:1vw;
 }
 
 
@@ -176,8 +184,8 @@ a {
 }
 
 .item-img {
-  width: 33vh;
-  height: 33vh;
+  width: 27vh;
+  height: 27vh;
 }
 
 .sold-out {

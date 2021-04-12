@@ -22,18 +22,47 @@
   <%= link_to image_tag("clubindex.png"),items_itemlist_path,class:"index-btn" %>
   </div>
 
-<div class="flex">
-    <%= image_tag "furima-intro04.png", class:"list-pict1" %>
-    <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+<div class='feature-contents'>
+  <h2 class='title'>
+   新着商品一覧
+  </h2>
 </div>
-<div class="flex">
-    <%= image_tag "furima-intro04.png", class:"list-pict1" %>
-    <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-</div>
-<div class="flex">
-    <%= image_tag "furima-intro04.png", class:"list-pict1" %>
-    <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-</div>
+
+    <ul class='item-lists'>
+  <% @items.each do |item| %>
+    <li class='list'>
+      <%= link_to item_path(item.id) do %>
+      <div class='item-img-content'>
+        <%= image_tag item.image, class: "item-img" %>
+
+        <% if item.order.present? %>
+          <div class='sold-out'>
+            <span><%= image_tag "soldout-icon.png", class:"status-showlist" %></span>
+          </div>
+        <% else %>
+          <div class='now-on-sale'>
+            <span><%= image_tag "nowonsale-icon.png", class:"status-showlist" %></span>
+          </div>
+        <% end %>
+      </div>
+
+
+      <div class='item-info'>
+        <h3 class='item-name'>
+          <%= item.name %>
+        </h3>
+        <div class='item-price'>
+          <span><%= item.daily_price %>円</span>
+          <div class='star-btn'>
+            <%= image_tag "star.png", class:"star-icon" %>
+            <span class='star-count'>0</span>
+          </div>
+        </div>
+      </div>
+      <% end %>
+  <% end %>
+  </li>
+  </ul>
 
 
 <div class='ad-contents'>
@@ -56,16 +85,34 @@
   こんな方に使ってほしい
 </h2>
 <div class="flex">
-    <%= image_tag "furima-intro04.png", class:"list-pict1" %>
-    <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+    <%= image_tag "clubset.jpg", class:"list-pict1" %>
+    <p>
+      <span class="sub-column">今使っていないクラブがある方</span><br/>
+     <br/>
+      お持ちのクラブは“全て”現役ですか？使っていないクラブがあるなら<br/>
+      ぜひ貸し出しをしてクラブを別の場所で活躍させてあげましょう！<br/>
+      ちょっとしたお小遣い稼ぎにも最適です。
+    </p>
 </div>
 <div class="flex">
-    <%= image_tag "furima-intro04.png", class:"list-pict1" %>
-    <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+    <%= image_tag "begginers.png", class:"list-pict1" %>
+    <p>
+      <span class="sub-column">どんなクラブを使っていいか分からない初心者の方</span><br/>
+     <br/>
+      ClubBoLを用いれば、リーズナブルに色んなクラブを<br/>
+      手に取ることができます。幅広い年代、硬さ、シャフトクラブを使って<br/>
+      あなたに合った最適なクラブとの出会いを応援します！
+    </p>
 </div>
 <div class="flex">
-    <%= image_tag "furima-intro04.png", class:"list-pict1" %>
-    <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+    <%= image_tag "friendship.png", class:"list-pict1" %>
+    <p>
+       <span class="sub-column">レンタルを通じてゴルフ仲間を増やしたい方</span><br/>
+     <br/>
+       ClubBoLでは貸し借りを基本的に“手渡し”で行います！<br/>
+       近場に住む利用者と取引をするケースが多いので<br/>
+       思わぬゴルフ仲間との出会いに恵まれるかも…？
+    </p>
 </div>
 </div>
 
