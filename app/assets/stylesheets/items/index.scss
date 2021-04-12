@@ -6,7 +6,7 @@ a {
   background: #f8f8f8;
 }
 
-/* 画面上部の「人生を変えるフリマアプリ」帯部分 */
+/* 画面上部 キャッチ*/
 .title-contents {
   margin:3vh 0;
   width: 100vw;
@@ -35,78 +35,21 @@ a {
   font-size: 2.5vh;
   line-height: 60px;
 }
-
-/* //画面上部の「人生を変えるフリマアプリ」帯部分 */
+/* */
 
 /* FURIMAが選ばれる3つの理由部分 */
-.select-reason-contents {
-  padding: 5vh 15vw;
-}
 
-.select-reason-contents>.title {
-  text-align: center;
-  font-size: 3.5vh;
-  font-weight: bold;
-  margin-bottom: 5vh;
-  position: relative;
-}
-
-.select-reason-contents>.title::after {
-  content: '';
-  width: 420px;
-  height: 4px;
-  background-color: gray;
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.reason-lists {
+.flex{
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: center;
+}
+.flex>p{
+  width: 49%;
 }
 
-.reason-lists>.list {
-  width: 33vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-
-.list-pict {
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-.reason-list-number {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 60px;
-  height: 60px;
-  font-size: 30px;
-  text-align: center;
-  line-height: 60px;
-  background-color: #3ccace;
-  color: #fff;
-}
-
-.reason-list-text {
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 50px;
-}
-
-.reason-list-blue-text {
-  color: #3ccace;
-}
-
-.reason-list-description {
-  font-size: 18px;
-  margin-top: 20px;
+.list-pict1{
+  max-width: 27vw;
+  max-height: 20vh;
 }
 
 /* //FURIMAが選ばれる3つの理由部分 */
@@ -115,7 +58,7 @@ a {
 /* 画面中央の「会員数日本一位」帯部分*/
 .ad-contents {
   width: 100vw;
-  background-image: image-url('furima-header02.png');
+  background-image: image-url('clubbol-header02.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
