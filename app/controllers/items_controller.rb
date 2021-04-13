@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
  
 
   def index
+    @items = Item.limit(5).order(created_at: "DESC")
   end
 
   def new
