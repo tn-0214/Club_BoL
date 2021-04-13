@@ -16,5 +16,20 @@ class User < ApplicationRecord
     self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
 
+  with_options presence:true do
+    validates :first_name
+    validates :last_name
+    validates :nickname
+    validates :email
+    validates :birthday
+    validates :phone_number, format: {with: /\A\d{11}\z/, message: "11桁の半角数字で入力してください"}
+    validates :postcode, format: {with: /\A\d{7}\z/, message: "7桁の数字を入力してください(ハイフン不要)"}
+    validates :prefecture_code, numericality: { other_than: 1 }
+    validates :address_city
+    validates :address_street
+  end
+
+  validates :password, format:{ with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message:'英字と数字の両方を含めて設定してください。' }
+
   
 end

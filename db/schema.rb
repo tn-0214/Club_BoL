@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_02_072721) do
+ActiveRecord::Schema.define(version: 2021_04_13_100552) do
 
   create_table "active_storage_attachments", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(version: 2021_04_02_072721) do
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "nickname", null: false
-    t.string "birthday", null: false
     t.string "phone_number", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -89,6 +88,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_072721) do
     t.integer "prefecture_code"
     t.string "address_city"
     t.string "address_street"
+    t.date "birthday"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
