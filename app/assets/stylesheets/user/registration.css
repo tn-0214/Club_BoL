@@ -52,10 +52,29 @@
   font-size:25px;
   text-align: center;
   padding:2vh 0;
+  border-bottom:solid 1px lightgray;
+  margin:0 20vw;
+}
+
+.registration-form{
+  margin:2vh 20vw;
+  background-color:lightgray;
+  padding:5vh 0;
 }
 
 .field{
   text-align: center;
+  padding:1vh;
+}
+
+.field>input,select{
+ width:22vw;
+ height:3vh;
+}
+
+
+.field-text{
+  font-size:14px;
 }
 
 .input-birth-wrap {
@@ -74,4 +93,31 @@
   font-size: 12px;
   cursor: pointer;
   text-align: center;
+}
+
+.actions{
+  text-align:center;
+  padding:5vh;
+  margin:1vh 0;
+}
+
+.actions >input{
+  padding:1vh 5vw;
+}
+
+.registration-btn{
+  text-align:center;
+  border-top:solid 1px lightgray;
+  margin:0 20vw;
+}
+
+.registration-do-jump{
+  border:none;
+  background:transparent;
+  margin:5vh 0 7vh 0;
+}
+
+.registration-do-jump >img{
+  width:285px;
+  height:88px;
 }
