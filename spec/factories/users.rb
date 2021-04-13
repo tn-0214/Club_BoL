@@ -8,9 +8,9 @@ FactoryBot.define do
     password {password}
     password_confirmation {password}
     birthday {Faker::Date.backward}
+    phone_number {"09000000000"}
     postcode {"2390808"}
     prefecture_code {"14"}
     address_city {"横須賀市"}
-    address_street {"大津町"}
   end
 end
