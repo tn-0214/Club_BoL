@@ -13,12 +13,13 @@ class Item < ApplicationRecord
     validates :minimum_period
   end
 
+  validates :daily_price, presence: true, numericality: { only_integer: true,message:'半角数字を使用してください' },inclusion: { in: 300..100000,message:'300円〜100000円の範囲で登録ください' }
+
   with_options presence:true do
     validates :name
     validates :comment
     validates :precaution
     validates :due_date
-    validates :daily_price
     validates :category_ids
   end
 
