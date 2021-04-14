@@ -1,11 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe Item, type: :model do
   describe "#create" do
    before do
-    user =  FactoryBot.create(:user)
     category =  FactoryBot.create(:category)
-    @item = FactoryBot.build(:item, user_id: user.id, category_ids: category.id)
+    @item = FactoryBot.build(:item, category_ids: category.id)
   end
 
   context '出品成功時' do
