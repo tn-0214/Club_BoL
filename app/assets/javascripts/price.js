@@ -1,5 +1,5 @@
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   const priceInput = document.getElementById('lending-period');
   if(priceInput != null){
   priceInput.addEventListener('input', () => {
