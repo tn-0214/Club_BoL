@@ -81,3 +81,5 @@ gem 'ransack'
 gem 'pry-rails'
 
 gem 'gon'
+
+gem 'payjp'
