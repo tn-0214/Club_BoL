@@ -9,8 +9,8 @@ window.addEventListener("load", () => {
       const DailyPrice = gon.daily_price
     addTaxDom.innerHTML = DailyPrice ;
 
-    const profitAmount = document.getElementById('amount');
-    profitAmount.innerHTML = Math.floor(inputValue * DailyPrice); 
+    const PriceAmount = document.getElementById('amount');
+    PriceAmount.innerHTML = Math.floor(inputValue * DailyPrice); 
 
     
 })

@@ -8,7 +8,7 @@ RSpec.describe Order, type: :model do
 
   context '購入成功時' do
     
-    it 'lending_periodが入力されていれば購入できる' do
+    it 'カード情報とlending_periodが正しく入力されていれば購入できる' do
      expect(@order).to be_valid
     end
 
@@ -37,6 +37,12 @@ RSpec.describe Order, type: :model do
       @order.lending_period = "ABC"
       @order.valid?
       expect(@order.errors.full_messages).to include("Lending period 半角数字を使用してください")
+    end
+
+    it "tokenが空では登録できない" do
+      @order.token = nil
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Token can't be blank")
     end
 
   end
