@@ -1,0 +1,16 @@
+<span class="user-nickname"><%= current_user.nickname %></span><span class="sub-text">さんのマイページ<span>
+
+  <div class="item-price-box">
+   <span class="item-price">
+    お名前：<%= @user.first_name %>
+   </span>
+   <span class="item-detail-head">
+    所在地（県）：<%= @user.prefecture.name %>
+   </span>
+   <span class="item-detail-head">
+    所在地（市）：<%= @user.address_city %>
+   </span>
+   <span class="item-detail-head">
+    所在地（詳細）：<%= @user.address_street %>
+   </span>
+  </div>

@@ -9,7 +9,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    binding.pry
     @order = Order.new(order_params)
     if@order.valid?
       pay_item 
