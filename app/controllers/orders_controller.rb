@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item
-   before_action :move_to_root
+  before_action :set_item ,except:[:message]
+   before_action :move_to_root,except:[:message]
 
   def index
     @order = Order.new
@@ -13,10 +13,13 @@ class OrdersController < ApplicationController
     if@order.valid?
       pay_item 
       @order.save
-      redirect_to root_path
+      redirect_to orders_message_path
     else
       render :index
     end
+  end
+
+  def message
   end
 
 private
@@ -25,6 +28,7 @@ private
   end
 
   def pay_item
+    logger.info("payjp.api_key=#{ENV['PAYJP_SECRET_KEY']}")
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount: @item.daily_price,  
