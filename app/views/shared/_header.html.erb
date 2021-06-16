@@ -10,7 +10,7 @@
           <span class="user-nickname"><%= current_user.nickname %></span><span class="sub-text">でログイン中<span>
             <ul class="lists-right">
               <li>
-                <%= link_to "メッセージ", root_path,class:"left-item" %>
+                <%= link_to "メッセージ", new_room_path,class:"left-item" %>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class:"right-item" %>
               </li>
             </ul>
