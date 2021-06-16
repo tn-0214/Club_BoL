@@ -6,13 +6,15 @@ Rails.application.routes.draw do
   get "items/itemlist"
   get "items/searchbranch"
 
-  get "items/searchbranch"
   get "items/search_legion"
   get "items/search_category"
+
+  get "orders/message"
 
   resources :items do
    resources :orders, only: [:index, :create]
    collection do get 'search'
    end
   end
+  resources :users, only: :show
 end

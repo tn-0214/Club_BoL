@@ -23,8 +23,13 @@
     </div>
     <%# /購入内容の表示 %>
 
+  <%# -------------- 一旦カード情報だけ外に出す ------------------- %>
+    <%= form_with model:@order, url:item_orders_path(@item.id), id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+  <%# /------------------------------------------------------------ %>
+    
+
     <%# カード情報の入力 一旦ここは後回しにする%>
-   <form> 
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
         クレジットカード情報入力
@@ -34,7 +39,7 @@
           <label class="form-text">カード情報</label>
           <span class="indispensable">必須</span>
         </div>
-        <input type="text" class="input-default" id="card-number", placeholder="カード番号(半角英数字)">
+        <%= f.text_field :number, class:"input-default", id:"card-number", placeholder:"カード番号(半角英数字)", maxlength:"16" %>
         <div class='available-card'>
           <%= image_tag 'card-visa.gif', class: 'card-logo'%>
           <%= image_tag 'card-mastercard.gif', class: 'card-logo'%>
@@ -48,9 +53,9 @@
           <span class="indispensable">必須</span>
         </div>
         <div class='input-expiration-date-wrap'>
-          <input type="text" class="input-expiration-date" id="card-exp-month", placeholder="例)3">
+          <%= f.text_area :exp_month, class:"input-expiration-date", id:"card-exp-month", placeholder:"例)3" %>
           <p>月</p>
-          <input type="text" class="input-expiration-date" id="card-exp-year", placeholder="例)23">
+          <%= f.text_area :exp_year, class:"input-expiration-date", id:"card-exp-year", placeholder:"例)23" %>
           <p>年</p>
         </div>
       </div>
@@ -59,10 +64,9 @@
           <label class="form-text">セキュリティコード</label>
           <span class="indispensable">必須</span>
         </div>
-        <input class="input-default", id="card-cvc", placeholder="カード背面4桁もしくは3桁の番号">
+        <%= f.text_field :cvc,class:"input-default", id:"card-cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4" %>
       </div>
     </div>
-  </form>
     <%# /カード情報の入力 %>
 
     <%# 購入者情報の表示 %>
@@ -80,11 +84,7 @@
 
     <%# /購入者情報の表示 %>
 
-  <%# -------------- 一旦カード情報だけ外に出す ------------------- %>
-    <%= form_with model:@order, url:item_orders_path(@item.id), id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
-    <%= render 'shared/error_messages', model: f.object %>
-  <%# /------------------------------------------------------------ %>
-    
+  
     <%# 貸出希望日数の入力 %>
     <div class='transaction-title-text'>
       <h1 class='info-input-haedline'>
