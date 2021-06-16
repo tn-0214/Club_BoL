@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "items/search_legion"
   get "items/search_category"
 
-  get "orders/message"
+  get "orders/rented"
 
   resources :items do
    resources :orders, only: [:index, :create]

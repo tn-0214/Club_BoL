@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item ,except:[:message]
-   before_action :move_to_root,except:[:message]
+  before_action :set_item ,except:[:rented]
+   before_action :move_to_root,except:[:rented]
 
   def index
     @order = Order.new
@@ -13,13 +13,13 @@ class OrdersController < ApplicationController
     if@order.valid?
       pay_item 
       @order.save
-      redirect_to orders_message_path
+      redirect_to orders_rented_path
     else
       render :index
     end
   end
 
-  def message
+  def rented
   end
 
 private
