@@ -11,11 +11,11 @@
 https://club-bol.herokuapp.com/
 
 #### ログイン情報（テスト用／出品者)  
-- Eメール：lender@lender.com
+- Eメール：lender@lender
 - パスワード：abc123
 
 #### ログイン情報（テスト用／購入者）  
-- Eメール：buyer@buyer.com
+- Eメール：buyer@buyer
 - パスワード：abc123
  
 ## 概要および制作意図
