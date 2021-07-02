@@ -19,6 +19,12 @@
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+    <div class="field-title">
+    アカウントをお持ちでない方は <%= link_to "新規登録", new_user_registration_path, class:"to-regi-jmp" %> へ
+    </div>
+  </div>
+  
   </div>
 
   <div class="registration-btn">
@@ -26,6 +32,9 @@
     <%= image_tag("bol_session.png") %>
     </button>
   </div>
+
+
+
 <% end %>
 
 <%= render "shared/footer"%>

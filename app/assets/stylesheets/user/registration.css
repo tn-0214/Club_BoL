@@ -109,15 +109,22 @@
   text-align:center;
   border-top:solid 1px lightgray;
   margin:0 20vw;
+
 }
 
 .registration-do-jump{
   border:none;
   background:transparent;
   margin:5vh 0 7vh 0;
+  cursor: pointer;
+  cursor: hand;
 }
 
 .registration-do-jump >img{
   width:285px;
   height:88px;
+}
+
+.to-regi-jmp{
+  text-decoration:underline;
 }
